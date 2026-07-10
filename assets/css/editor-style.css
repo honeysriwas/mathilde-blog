@@ -1,0 +1,41 @@
+/* =========================================================================
+   Mathilde — editor-style.css
+   Makes the block editor approximate the front-end article look.
+   ========================================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
+
+.editor-styles-wrapper {
+	--c-accent: #c0807c;
+	--c-ink: #1c1c1c;
+	--c-text-soft: #6e6e6e;
+	--font-serif: "Playfair Display", Georgia, serif;
+	--font-sans: "Inter", system-ui, sans-serif;
+	font-family: var(--font-sans);
+	color: #34302d;
+	background: #fff;
+}
+
+.editor-styles-wrapper .wp-block {
+	max-width: 760px;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4 {
+	font-family: var(--font-serif);
+	font-weight: 600;
+	color: var(--c-ink);
+	letter-spacing: -0.01em;
+}
+
+.editor-styles-wrapper p { font-size: 1.08rem; line-height: 1.85; }
+
+.editor-styles-wrapper a { color: #a9645f; }
+
+.editor-styles-wrapper blockquote {
+	font-family: var(--font-serif);
+	font-style: italic;
+	border-left: 3px solid var(--c-accent);
+	padding-left: 1.2em;
+}

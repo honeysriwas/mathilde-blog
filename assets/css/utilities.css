@@ -1,0 +1,82 @@
+/* =========================================================================
+   Mathilde — utilities.css
+   Small atomic helpers + scroll-reveal animation.
+   ========================================================================= */
+
+/* Spacing */
+.mt-0 { margin-top: 0; }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-5 { margin-top: var(--space-5); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-0 { margin-bottom: 0; }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-5 { margin-bottom: var(--space-5); }
+.mb-6 { margin-bottom: var(--space-6); }
+
+/* Text */
+.text-center { text-align: center; }
+.text-soft { color: var(--c-text-soft); }
+.text-accent { color: var(--c-accent); }
+.uppercase { text-transform: uppercase; letter-spacing: 0.14em; }
+.serif { font-family: var(--font-serif); }
+.sans { font-family: var(--font-sans); }
+
+/* Flex helpers */
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col { flex-direction: column; }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.items-center { align-items: center; }
+.wrap { flex-wrap: wrap; }
+
+/* Display */
+.hidden { display: none !important; }
+.block { display: block; }
+.relative { position: relative; }
+.w-full { width: 100%; }
+
+/* Visibility per breakpoint */
+.show-mobile { display: none; }
+.hide-mobile { display: initial; }
+
+/* Dividers */
+.divider { height: 1px; background: var(--c-border); border: 0; margin-block: var(--space-6); }
+
+/* Aspect ratios */
+.ratio-square { aspect-ratio: 1; }
+.ratio-portrait { aspect-ratio: 4 / 5; }
+.ratio-landscape { aspect-ratio: 4 / 3; }
+.ratio-wide { aspect-ratio: 16 / 9; }
+.cover { width: 100%; height: 100%; object-fit: cover; }
+
+/* Scroll reveal */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+	will-change: opacity, transform;
+}
+
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* Skeleton shimmer for lazy media */
+.is-loading {
+	background: linear-gradient(100deg, var(--c-surface-alt) 30%, #efe9e4 50%, var(--c-surface-alt) 70%);
+	background-size: 200% 100%;
+	animation: m-shimmer 1.3s infinite;
+}
+
+@keyframes m-shimmer {
+	to { background-position: -200% 0; }
+}

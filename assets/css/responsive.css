@@ -1,0 +1,167 @@
+/* =========================================================================
+   Mathilde — responsive.css
+   Breakpoints per the wireframe spec:
+   Desktop 1400 · Laptop 1200 · Tablet 992 · Mobile 768 · Small 480
+   ========================================================================= */
+
+/* ---- Laptop (≤1200px) -------------------------------------------------- */
+@media (max-width: 1200px) {
+	:root { --header-h: 124px; }
+
+	.shell,
+	.article-shell { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--space-6); }
+
+	.footer-main { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+	.footer-thumb { display: none; }
+
+	.insta__grid { grid-template-columns: repeat(6, 1fr); }
+	.h-scroll--5 { grid-auto-columns: calc((100% - 3 * var(--gutter)) / 4); }
+}
+
+/* ---- Tablet (≤992px) --------------------------------------------------- */
+@media (max-width: 992px) {
+	:root { --header-h: 84px; --gutter: 18px; }
+
+	/* Collapse to single column shells; sidebar drops below */
+	.shell,
+	.article-shell { grid-template-columns: 1fr; }
+	.shell__sidebar,
+	.article-rail { position: static; }
+	.m-share--vertical { display: none; }
+
+	/* Header: hide desktop nav + search box, show hamburger */
+	.primary-nav { display: none; }
+	.header-search { display: none; }
+	.header-social { display: none; }
+	.nav-toggle { display: inline-flex; }
+
+	.header-top {
+		grid-template-columns: auto 1fr auto;
+		padding-block: var(--space-4);
+	}
+	.brand { text-align: center; }
+	.header-top__left { gap: var(--space-2); }
+
+	/* Hero + about stack */
+	.hero { grid-template-columns: 1fr; }
+	.hero__media { min-height: 320px; }
+	.about { grid-template-columns: 1fr; }
+	.about__media { order: -1; min-height: 280px; }
+
+	.ai-trust__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+	.faq { grid-template-columns: 1fr; }
+	.faq__media { display: none; }
+
+	.grid--4 { grid-template-columns: repeat(2, 1fr); }
+	.grid--3 { grid-template-columns: repeat(2, 1fr); }
+	.grid--5 { grid-template-columns: repeat(2, 1fr); }
+
+	.footer-main { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+	.footer-brand { grid-column: 1 / -1; }
+
+	.insta__grid { grid-template-columns: repeat(4, 1fr); }
+
+	.section { padding-block: var(--space-7); }
+
+	.newsletter-band { flex-direction: column; text-align: center; align-items: stretch; }
+
+	/* Category cards become a horizontal scroller */
+	.cat-cards-grid {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 62%;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+	.cat-cards-grid::-webkit-scrollbar { display: none; }
+	.cat-cards-grid > * { scroll-snap-align: start; }
+}
+
+/* ---- Mobile (≤768px) --------------------------------------------------- */
+@media (max-width: 768px) {
+	:root { --fs-base: 16px; }
+
+	.grid--4,
+	.grid--3,
+	.grid--5,
+	.grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+	.ai-trust__grid { grid-template-columns: 1fr; }
+
+	.insta__grid { grid-template-columns: repeat(3, 1fr); }
+
+	.author-box { flex-direction: column; text-align: center; align-items: center; }
+
+	.archive-toolbar { flex-direction: column; align-items: stretch; }
+
+	.h-scroll--5,
+	.h-scroll--4 { grid-auto-columns: 70%; }
+
+	.show-mobile { display: initial; }
+	.hide-mobile { display: none; }
+
+	.section__head { flex-wrap: wrap; }
+
+	blockquote { font-size: 1.25rem; }
+
+	.footer-bottom { flex-direction: column; text-align: center; gap: var(--space-3); }
+}
+
+/* ---- Touch targets (≤768px): ensure ≥44px tappable area --------------- */
+@media (max-width: 768px) {
+	.m-social a,
+	.header-social a,
+	.author-box__body .m-social a,
+	.m-breadcrumbs a {
+		min-width: 44px;
+		min-height: 44px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.m-share__btn { width: 44px; height: 44px; }
+	.cat-list a { padding-block: 6px; }
+	.footer-widget a,
+	.menu-mobile a { min-height: 44px; display: flex; align-items: center; }
+
+	/* Slider/hero dots: keep the dot small but enlarge the hit area */
+	.slider-dots button,
+	.hero-rotator__dots button {
+		padding: 14px;
+		background-clip: content-box;
+		box-sizing: content-box;
+	}
+}
+
+/* ---- Small mobile (≤480px) --------------------------------------------- */
+@media (max-width: 480px) {
+	:root { --gutter: 14px; }
+
+	.grid--4,
+	.grid--3,
+	.grid--5,
+	.grid--2 { grid-template-columns: 1fr; }
+
+	/* Two-up cards still look good on the post sliders — keep cards readable */
+	.post-card__title { font-size: 1.05rem; }
+
+	.insta__grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+
+	.brand__title { font-size: 1.35rem; letter-spacing: 0.12em; }
+	.brand__subtitle { letter-spacing: 0.35em; }
+
+	.h-scroll--5,
+	.h-scroll--4,
+	.h-scroll { grid-auto-columns: 82%; }
+
+	.cat-cards-grid { grid-auto-columns: 80%; }
+
+	.newsletter-band__form { flex-direction: column; }
+	.btn { width: 100%; }
+	.field-inline { flex-direction: column; }
+
+	.to-top { right: var(--space-3); bottom: var(--space-3); }
+
+	.author-box__avatar img { width: 70px; height: 70px; }
+}

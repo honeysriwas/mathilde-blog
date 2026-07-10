@@ -1,0 +1,165 @@
+/* =========================================================================
+   Mathilde — base.css
+   Design tokens, reset, and root element styling.
+   (Color & font variables are also emitted dynamically from the Customizer,
+    these are the safe fallbacks.)
+   ========================================================================= */
+
+:root {
+	/* Palette ------------------------------------------------------------ */
+	--c-accent: #c0807c;
+	--c-accent-soft: rgba(192, 128, 124, 0.12);
+	--c-accent-ink: #a9645f;
+	--c-ink: #1c1c1c;
+	--c-text: #1c1c1c;
+	--c-text-soft: #595959;  /* WCAG AA on white */
+	--c-text-faint: #6e6e6e; /* dates/counts — was too light for AA */
+	--c-blush: #fae9e6;
+	--c-blush-deep: #f6ddd8;
+	--c-cream: #fbf7f4;
+	--c-surface: #ffffff;
+	--c-surface-alt: #f7f3ef;
+	--c-border: #ece7e3;
+	--c-border-strong: #ddd5cf;
+	--c-black: #1c1c1c;
+	--c-white: #ffffff;
+
+	/* Typography --------------------------------------------------------- */
+	--font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+	--font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--font-eyebrow: "Jost", "Inter", sans-serif;
+	--fs-base: 17px;
+	--lh-base: 1.75;
+	--lh-tight: 1.15;
+
+	/* Spacing scale ------------------------------------------------------ */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
+	--space-7: 48px;
+	--space-8: 64px;
+	--space-9: 88px;
+	--space-10: 120px;
+
+	/* Layout ------------------------------------------------------------- */
+	--container: 1240px;
+	--container-wide: 1440px;
+	--container-narrow: 760px;
+	--gutter: 24px;
+	--radius: 4px;
+	--radius-lg: 10px;
+	--radius-pill: 999px;
+
+	/* Effects ------------------------------------------------------------ */
+	--shadow-sm: 0 2px 10px rgba(28, 28, 28, 0.04);
+	--shadow-md: 0 12px 40px rgba(28, 28, 28, 0.08);
+	--shadow-lg: 0 24px 70px rgba(28, 28, 28, 0.12);
+	--transition: 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+	--transition-fast: 0.18s ease;
+
+	/* Chrome ------------------------------------------------------------- */
+	--header-h: 132px;
+	--announce-h: 38px;
+}
+
+/* Reset ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--header-h) + 20px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+body {
+	font-family: var(--font-sans);
+	font-size: var(--fs-base);
+	line-height: var(--lh-base);
+	color: var(--c-text);
+	background: var(--c-surface);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+a {
+	color: var(--c-ink);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--c-accent);
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+:focus-visible {
+	outline: 2px solid var(--c-accent);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+::selection {
+	background: var(--c-blush-deep);
+	color: var(--c-ink);
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--c-border);
+	margin: var(--space-7) 0;
+}
+
+/* Reduce layout shift: reserve space while web fonts load */
+.no-js .reveal { opacity: 1; transform: none; }

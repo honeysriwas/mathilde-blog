@@ -1,0 +1,65 @@
+/* =========================================================================
+   Mathilde — dark-mode.css
+   Activated by [data-theme="dark"] on <html> (set by dark-mode.js).
+   A warm, magazine-appropriate dark palette — not pure black.
+   ========================================================================= */
+
+html[data-theme="dark"] {
+	--c-accent: #d99b96;
+	--c-accent-soft: rgba(217, 155, 150, 0.16);
+	--c-accent-ink: #e6b3ae;
+	--c-ink: #f3ede9;
+	--c-text: #ece6e1;
+	--c-text-soft: #a89f99;
+	--c-text-faint: #7c736d;
+	--c-blush: #2a2320;
+	--c-blush-deep: #352b27;
+	--c-cream: #221d1b;
+	--c-surface: #181513;
+	--c-surface-alt: #221d1b;
+	--c-border: #332c28;
+	--c-border-strong: #423a35;
+	--c-black: #f3ede9;
+	--c-white: #181513;
+}
+
+html[data-theme="dark"] body { background: var(--c-surface); color: var(--c-text); }
+
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .drawer,
+html[data-theme="dark"] .menu-primary .sub-menu,
+html[data-theme="dark"] .search-overlay { background: #1d1916; }
+
+html[data-theme="dark"] .search-overlay { background: rgba(24, 21, 19, 0.97); }
+
+html[data-theme="dark"] .btn { background: var(--c-ink); color: #181513; border-color: var(--c-ink); }
+html[data-theme="dark"] .btn:hover { background: var(--c-accent); border-color: var(--c-accent); color: #181513; }
+html[data-theme="dark"] .btn--outline { background: transparent; color: var(--c-ink); }
+html[data-theme="dark"] .btn--outline:hover { background: var(--c-ink); color: #181513; }
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select { background: #221d1b; border-color: var(--c-border-strong); color: var(--c-text); }
+
+html[data-theme="dark"] .featured-in__logo,
+html[data-theme="dark"] .brand__title,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3 { color: var(--c-ink); }
+
+html[data-theme="dark"] .featured-in__logo img { filter: grayscale(1) invert(1); }
+
+html[data-theme="dark"] .post-card__media,
+html[data-theme="dark"] .m-thumb-placeholder { background: #2a2320; }
+
+html[data-theme="dark"] .carousel__btn,
+html[data-theme="dark"] .ai-trust__icon { background: #2a2320; color: var(--c-ink); }
+
+html[data-theme="dark"] .to-top { background: var(--c-accent); color: #181513; }
+
+/* Toggle icon swap */
+html[data-theme="dark"] .dark-toggle .m-icon--moon { display: none; }
+html[data-theme="dark"] .dark-toggle .m-icon--sun { display: block; }
+
+/* Soften images a touch in dark mode */
+html[data-theme="dark"] img:not(.no-dim) { filter: brightness(0.92); }

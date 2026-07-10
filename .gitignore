@@ -1,0 +1,8 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+
+# Never commit local build artifacts
+/dist/

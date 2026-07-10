@@ -1,0 +1,47 @@
+/*
+Theme Name: Mathilde Blog
+Theme URI: https://mathildelacombe.com
+Author: Blaze LS
+Author URI: https://blazels.com
+Description: Mathilde — a premium editorial magazine WordPress theme for beauty, fashion & lifestyle blogs. Features an elegant serif/sans typographic system, a flexible homepage builder, AEO/SEO schema, dark mode, and a fully responsive magazine layout.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mathilde
+Tags: blog, magazine, editorial, news, two-columns, right-sidebar, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, sticky-post, threaded-comments, translation-ready, block-styles
+*/
+
+/*
+ * The compiled design system lives in /assets/css/ and is enqueued in this order:
+ *   base.css  →  typography.css  →  layout.css  →  components.css
+ *   utilities.css  →  responsive.css  →  dark-mode.css
+ *
+ * This file only carries the theme header (required by WordPress) plus a small
+ * set of WordPress core class requirements.
+ */
+
+/* WordPress required core classes ---------------------------------------- */
+.alignleft   { float: left;  margin: 0.4em 1.6em 1em 0; }
+.alignright  { float: right; margin: 0.4em 0 1em 1.6em; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption  { max-width: 100%; }
+.wp-caption-text { font-size: 0.85rem; color: var(--c-text-soft); text-align: center; padding: 0.5rem 0; }
+.sticky      {}
+.gallery-caption {}
+.bypostauthor{}
+.screen-reader-text {
+	border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%);
+	height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0;
+	position: absolute !important; word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+	background-color: #fff; border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.6);
+	clip: auto !important; clip-path: none;
+	color: #1c1c1c; display: block; font-size: 0.875rem; font-weight: 700;
+	height: auto; left: 5px; line-height: normal; padding: 15px 23px 14px;
+	text-decoration: none; top: 5px; width: auto; z-index: 100000;
+}
